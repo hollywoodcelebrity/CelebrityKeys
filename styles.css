@@ -1,0 +1,271 @@
+@import "https://fonts.googleapis.com/css?family=Source+Code+Pro";
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0px;
+  min-height: 100%;
+  height: 100%;
+  font-family: "Source Code Pro", monospace;
+}
+
+.containers {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.binary-container {
+  position: relative;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.binary {
+  font-size: 50px;
+}
+
+.play-pause {
+  font-family: serif;
+  font-size: 30px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.editor-container {
+  transition: height 150ms ease-out;
+  width: 100%;
+  background: #e9e9e9;
+  bottom: 0px;
+  left: 0px;
+  height: 42px;
+  overflow: hidden;
+  padding-top: 11px;
+}
+
+.editor-container-contents {
+  transition: opacity 250ms ease-out;
+  opacity: 0;
+}
+
+.editor-container.open {
+  height: 400px;
+}
+
+.editor-container.open .editor-container-contents {
+  opacity: 1;
+}
+
+.play {
+  width: 39px;
+  font-size: 15px;
+  height: 35px;
+  border: 3px solid;
+  margin-top: 10px;
+  border-radius: 3px;
+  position: relative;
+}
+
+.play:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-right: 8px solid transparent;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-left: 10px solid black;
+  transform: translate(calc(-50% + 5px), -50%);
+}
+
+.pause:after {
+  border: 6px solid black;
+  transform: translate(-50%, -50%);
+}
+
+/**
+ * The Keyboard
+ */
+
+ul {
+  position: relative;
+  width: 625px;
+  margin: auto;
+  padding: 0px;
+  height: 90px;
+}
+
+li {
+  position: relative;
+  list-style: none;
+  float: left;
+  padding: 0;
+  margin: 0;
+}
+
+.piano-key {
+  transition: background 100ms ease;
+}
+
+ul .white {
+  border-bottom: 1px solid #ccc;
+  border-left: 1px solid #eee;
+  background: #fff;
+  height: 80px;
+  width: 12px;
+  z-index: 1;
+}
+
+.white:hover {
+  background: #eee;
+}
+
+.black {
+  margin: 0 -4px 0 -4px;
+  border: 1px solid #000;
+  background: black;
+  height: 50px;
+  width: 8px;
+  z-index: 2;
+}
+
+.black:hover {
+  background: #444;
+}
+
+.notes {
+  margin: auto;
+  display: block;
+  position: relative;
+  text-align: center;
+  font-size: 24px;
+  margin-top: 50px;
+  margin-bottom: 40px;
+}
+
+.notes input {
+  border: none;
+  width: 55px;
+  font-size: inherit;
+  border-bottom: 4px solid #222;
+  outline: 0px;
+  text-align: center;
+  padding: 5px;
+}
+
+.notes input:focus {
+  border-bottom: 4px solid hotpink;
+}
+
+.info h1 {
+  text-align: center;
+  color: #222;
+  letter-spacing: 2px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 0px;
+}
+
+.info span {
+  margin-left: 10px;
+  margin-right: 15px;
+  letter-spacing: -2px;
+}
+
+.details {
+  max-width: 700px;
+  padding: 30px;
+  margin: auto;
+  text-align: center;
+  font-size: 15px;
+}
+
+@media only screen and (max-width: 700px) {
+  .editor-container.open {
+    height: auto;
+  }
+
+  .notes input {
+    margin-bottom: 8px;
+  }
+
+  .info h1 {
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 0px;
+  }
+
+  .notes {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .details {
+    font-size: 10px;
+    padding: 10px;
+  }
+}
+
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Source Code Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/sourcecodepro/v31/HI_diYsKILxRpg3hIP6sJ7fM7PqPMcMnZFqUwX28DMyQtMRrTEUc.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Source Code Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/sourcecodepro/v31/HI_diYsKILxRpg3hIP6sJ7fM7PqPMcMnZFqUwX28DMyQtM1rTEUc.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Source Code Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/sourcecodepro/v31/HI_diYsKILxRpg3hIP6sJ7fM7PqPMcMnZFqUwX28DMyQtMVrTEUc.woff2) format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Source Code Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/sourcecodepro/v31/HI_diYsKILxRpg3hIP6sJ7fM7PqPMcMnZFqUwX28DMyQtMprTEUc.woff2) format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Source Code Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/sourcecodepro/v31/HI_diYsKILxRpg3hIP6sJ7fM7PqPMcMnZFqUwX28DMyQtMZrTEUc.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Source Code Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/sourcecodepro/v31/HI_diYsKILxRpg3hIP6sJ7fM7PqPMcMnZFqUwX28DMyQtMdrTEUc.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Source Code Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/sourcecodepro/v31/HI_diYsKILxRpg3hIP6sJ7fM7PqPMcMnZFqUwX28DMyQtMlrTA.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
