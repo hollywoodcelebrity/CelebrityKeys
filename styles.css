@@ -290,3 +290,16 @@ ul .white {
   font-weight: 400;
   color: #555;
 }
+
+.top-info ul {
+  max-width: 800px;
+  margin: 0 auto 20px;
+  padding-left: 20px;
+  text-align: left;
+  font-size: 16px;
+  color: #333;
+}
+
+.top-info li {
+  margin-bottom: 10px;
+}
